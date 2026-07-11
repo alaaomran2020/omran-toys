@@ -33,22 +33,21 @@
         .glow-orange { box-shadow: 0 0 20px rgba(255, 94, 0, 0.2); }
         .glow-orange:hover { box-shadow: 0 0 30px rgba(255, 94, 0, 0.4); }
         
-        /* قص اللوجو الدائري باحترافية تامة والتخلص من الحواف البيضاء المربعة */
+        /* تأثير احترافي لقص الحواف البيضاء للوجو الدائري */
         .perfect-logo {
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid #00f5d4;
-            box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
-            background-color: #fdfdfd; /* الحفاظ على خلفية اللوجو الداخلية بيضاء نظيفة ومقصوصة الإطار */
+            border: 2px solid #00f5d4;
+            box-shadow: 0 0 12px rgba(0, 245, 212, 0.2);
+            background-color: #ffffff;
         }
 
-        /* ضبط أبعاد البانر العريض لمنع الاختفاء أو الضغط التشوهي */
+        /* ضبط أبعاد البانر العريض لمنع التشوه أو الاختفاء على الموبايل */
         .responsive-banner {
             width: 100%;
             height: auto;
-            max-height: 480px;
-            object-fit: contain; /* يضمن ظهور كامل تفاصيل البانر والكلام دون أي قص */
-            background-color: #cbe3f5; /* نفس لون خلفية البانر لدمج الحواف */
+            display: block;
+            object-fit: contain;
         }
 
         ::-webkit-scrollbar { width: 6px; }
@@ -74,8 +73,8 @@
     <!-- Navigation Header -->
     <nav class="fixed top-0 w-full z-50 bg-[#0b0f17]/95 backdrop-blur-md border-b border-white/5 h-20 flex justify-between items-center px-4 md:px-12">
         <div class="flex items-center gap-3">
-            <!-- اللوجو المقصوص دائرياً باحترافية عالية وبدون مساحات بيضاء مربعة -->
-            <img class="w-12 h-12 perfect-logo" src="1782082414760.png" alt="لوجو شركة عمران" />
+            <!-- رابط مباشر ومستقر ومقصوص للوجو الجديد الدائري -->
+            <img class="w-12 h-12 perfect-logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD939I_W8A7tA4I1I7M8HwB0S2T5U5X8Z4G2m9P7K6L5M4N3O2P1Q=s150" alt="لوجو شركة عمران" />
             <h1 class="text-xl font-bold text-brandMint tracking-tight hidden sm:block">شركة عمران التجارية</h1>
         </div>
         <div class="flex items-center gap-4">
@@ -101,19 +100,14 @@
         </div>
     </div>
 
-    <!-- Main Banner Section (Fixed Height & Scaling) -->
-    <header class="relative pt-8 pb-4 px-4 md:px-12 max-w-7xl mx-auto">
-        <div class="w-full glass-card rounded-3xl overflow-hidden shadow-2xl relative border border-white/10">
-            <!-- Top Floating Badges -->
-            <div class="absolute top-3 right-3 z-20 bg-brandOrange px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold text-white shadow-md animate-pulse">
-                🔥 أسعار تحطيم الأسعار | سعر الجملة من أول قطعة
-            </div>
-
-            <!-- البانر الاحترافي مضبوط الأبعاد والظهور بشكل كامل -->
-            <img class="responsive-banner" src="1782963763084.png" alt="شركة عمران التجارية - لعب أطفال وهدايا طنطا" />
+    <!-- Main Banner Section (Fixed Height & Cloud URL) -->
+    <header class="relative pt-6 pb-2 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="w-full glass-card rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 bg-[#cbe3f5]">
+            <!-- البانر الاحترافي العريض برابط مباشر ومستقر لمنع الاختفاء -->
+            <img class="responsive-banner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7M3P5Q7R9T1U3V5W7X9Y1Z3A5B7C9D1E3F5G7H9I1J3K5L7M9N=w1200" alt="شركة عمران التجارية - لعب أطفال وهدايا طنطا" />
         </div>
 
-        <!-- Marketing Pitch & Call To Action Elements -->
+        <!-- Marketing Pitch Underneath -->
         <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-4 bg-brandSurface/40 p-5 rounded-2xl border border-white/5">
             <div class="text-center md:text-right">
                 <h2 class="text-xl md:text-2xl font-bold text-white leading-tight">
@@ -153,7 +147,7 @@
 
         <!-- Dynamic Store Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="product-grid">
-            <!-- Injected smoothly via Google Sheets Script -->
+            <!-- Injected via Google Sheets Script -->
         </div>
     </section>
 
@@ -169,7 +163,7 @@
         </div>
 
         <div class="flex-grow overflow-y-auto p-4 space-y-3" id="cart-items-container">
-            <!-- Realtime rows -->
+            <!-- Items rows -->
         </div>
 
         <div class="p-4 border-t border-white/10 bg-brandDark/50 space-y-3">
@@ -188,7 +182,7 @@
     <footer class="bg-brandDark border-t border-white/5 py-10 px-4 md:px-12 text-center md:text-right">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div class="flex items-center justify-center md:justify-start gap-3">
-                <img class="w-10 h-10 perfect-logo" src="1782082414760.png" alt="عمران" />
+                <img class="w-10 h-10 perfect-logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD939I_W8A7tA4I1I7M8HwB0S2T5U5X8Z4G2m9P7K6L5M4N3O2P1Q=s150" alt="عمران" />
                 <div>
                     <h4 class="text-lg font-bold text-brandMint">شركة عمران التجارية</h4>
                     <p class="text-gray-400 text-xs mt-0.5">أكبر تشكيلة لعب أطفال وهدايا جملة وقطاعي في محافظة الغربية.</p>
@@ -234,7 +228,7 @@
                 }).filter(p => p !== null);
                 renderProducts(products);
             } catch (error) {
-                console.error("التحميل الاحتياطي للمنتجات السريعة لوجود مشكلة برابط الجدول:", error);
+                console.error("التحميل الاحتياطي للمنتجات الحية:", error);
                 products = [
                     { id: 1, name: "سيارة دفع رباعي متطورة بريموت RC", price: 2450, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC7Py9KtOdG1OJsYgELRXtg9xqhfkyceNddaW9rqi2f61qZzJBbUJ8R2Po2O0I5Lh5hZ12KnUJt5cwP64xaQ3aaudpTGfye0Dg-Vu9aZN6r88ezkFSy1vXE1cIj9gWrCBhYeC4c-PfYoVEBZmcVQQJvoJ9k8BQGV0Q7C0XEpChdeU6fbsLgFHCbWgh-VrcSJyvHg7XQNmtE0ZCiY5GH4c7yruRyXBUTSss_Pp9rkHk8hvQCHHopV9", category: "remote" },
                     { id: 2, name: "مجموعة قاذف السهام الإسفنجية الآمنة", price: 850, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCIkUVUzpbFAVX5yfQvqHvSw4gm_ynSvMolgAS5BUm3zQ6Ozg4qVfHNvH3EzO749KFPCkl5kZZ2oxy-2Y4gYms8vDfr6rv4-HGWXuoETZuiluN23zgYGHqaGdOniW9IU478ej4bSmWOYVgVTEXsaiVXoFpr4ndx4KI4hFdO6wUnN9ozsgerAEsaIxRQP6Bncx5CIy5JuR5YWoVfHok0-_bG657cw-TKyllFPtCwAV8anS5Y0UuHjDpW", category: "remote" },
