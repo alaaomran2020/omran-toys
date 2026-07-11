@@ -32,13 +32,32 @@
         .glass-card { background: rgba(22, 29, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .glow-orange { box-shadow: 0 0 20px rgba(255, 94, 0, 0.2); }
         .glow-orange:hover { box-shadow: 0 0 30px rgba(255, 94, 0, 0.4); }
+        
+        /* قص اللوجو الدائري باحترافية تامة والتخلص من الحواف البيضاء المربعة */
+        .perfect-logo {
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #00f5d4;
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+            background-color: #fdfdfd; /* الحفاظ على خلفية اللوجو الداخلية بيضاء نظيفة ومقصوصة الإطار */
+        }
+
+        /* ضبط أبعاد البانر العريض لمنع الاختفاء أو الضغط التشوهي */
+        .responsive-banner {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain; /* يضمن ظهور كامل تفاصيل البانر والكلام دون أي قص */
+            background-color: #cbe3f5; /* نفس لون خلفية البانر لدمج الحواف */
+        }
+
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0b0f17; }
         ::-webkit-scrollbar-thumb { background: #161d2a; border-radius: 3px; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="text-gray-200 overflow-x-hidden">
+<body class="text-gray-200 overflow-x-hidden pt-20">
 
     <!-- WhatsApp & Phone Floating Buttons -->
     <div class="fixed bottom-6 right-6 z-[60] flex flex-col gap-3">
@@ -52,10 +71,12 @@
         </a>
     </div>
 
-    <!-- Top Navigation Header -->
-    <nav class="fixed top-0 w-full z-50 bg-[#0b0f17]/90 backdrop-blur-md border-b border-white/5 h-20 flex justify-between items-center px-6 md:px-12">
-        <div class="flex items-center gap-4">
-            <h1 class="text-2xl font-bold text-brandMint tracking-tight">شركة عمران التجارية</h1>
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0b0f17]/95 backdrop-blur-md border-b border-white/5 h-20 flex justify-between items-center px-4 md:px-12">
+        <div class="flex items-center gap-3">
+            <!-- اللوجو المقصوص دائرياً باحترافية عالية وبدون مساحات بيضاء مربعة -->
+            <img class="w-12 h-12 perfect-logo" src="1782082414760.png" alt="لوجو شركة عمران" />
+            <h1 class="text-xl font-bold text-brandMint tracking-tight hidden sm:block">شركة عمران التجارية</h1>
         </div>
         <div class="flex items-center gap-4">
             <button class="relative p-2 hover:bg-white/5 rounded-full transition-all" onclick="toggleCart()">
@@ -65,63 +86,49 @@
         </div>
     </nav>
 
-    <!-- Trust Bar -->
-    <div class="mt-20 bg-[#161d2a]/50 border-b border-white/5 py-3">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-3 text-center">
-            <div class="flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-brandMint">local_shipping</span>
-                <span class="text-sm text-gray-400">توصيل سريع آمن لباب البيت</span>
+    <!-- Trust Bar Info -->
+    <div class="bg-[#161d2a]/50 border-b border-white/5 py-3">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-3 text-center">
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-400">
+                <span class="material-symbols-outlined text-brandMint text-lg">local_shipping</span> توصيل سريع آمن لباب البيت
             </div>
-            <div class="flex items-center justify-center gap-2 border-y md:border-y-0 md:border-x border-white/10 py-2 md:py-0">
-                <span class="material-symbols-outlined text-brandMint">sell</span>
-                <span class="text-sm text-gray-400">أكبر تشكيل لعب أطفال بسعر الجملة</span>
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-400 border-y md:border-y-0 md:border-x border-white/10 py-1.5 md:py-0">
+                <span class="material-symbols-outlined text-brandMint text-lg">sell</span> أكبر تشكيل لعب أطفال بسعر الجملة
             </div>
-            <div class="flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-brandMint">location_on</span>
-                <span class="text-sm text-gray-400">طنطا - شارع سيتي كلوب ومطعم سي السيد</span>
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-400">
+                <span class="material-symbols-outlined text-brandMint text-lg">location_on</span> طنطا - شارع سيتي كلوب ومطعم سي السيد
             </div>
         </div>
     </div>
 
-    <!-- Hero Banner Section -->
-    <header class="relative pt-12 pb-6 px-4 md:px-12 max-w-7xl mx-auto">
-        <!-- Main Banner Container -->
+    <!-- Main Banner Section (Fixed Height & Scaling) -->
+    <header class="relative pt-8 pb-4 px-4 md:px-12 max-w-7xl mx-auto">
         <div class="w-full glass-card rounded-3xl overflow-hidden shadow-2xl relative border border-white/10">
-            <!-- Badges on top of banner -->
-            <div class="absolute top-4 right-4 z-20 bg-brandOrange px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-lg animate-pulse">
+            <!-- Top Floating Badges -->
+            <div class="absolute top-3 right-3 z-20 bg-brandOrange px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold text-white shadow-md animate-pulse">
                 🔥 أسعار تحطيم الأسعار | سعر الجملة من أول قطعة
             </div>
-            <div class="absolute top-4 left-4 z-20 bg-brandDark/70 backdrop-blur-md border border-brandMint/30 px-3 py-1.5 rounded-full text-brandMint text-xs font-bold">
-                ✨ ألعاب أطفال حصرية بجودة فائقة
-            </div>
 
-            <!-- The Beautiful Corporate Identity Banner Image -->
-            <div class="w-full bg-[#cbe3f5]">
-                <img class="w-full h-auto object-cover md:max-h-[520px] mx-auto block" 
-                     src="1782963763084.png" 
-                     alt="شركة عمران التجارية - لعب أطفال وهدايا طنطا" />
-            </div>
-
-            <!-- Sleek Blur Overlay Gradient at the bottom -->
-            <div class="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-brandDark to-transparent opacity-40"></div>
+            <!-- البانر الاحترافي مضبوط الأبعاد والظهور بشكل كامل -->
+            <img class="responsive-banner" src="1782963763084.png" alt="شركة عمران التجارية - لعب أطفال وهدايا طنطا" />
         </div>
 
-        <!-- Banner Marketing Copy & Call to Actions underneath -->
-        <div class="mt-8 flex flex-col md:flex-row justify-between items-center gap-6 bg-brandSurface/40 p-6 rounded-2xl border border-white/5">
+        <!-- Marketing Pitch & Call To Action Elements -->
+        <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-4 bg-brandSurface/40 p-5 rounded-2xl border border-white/5">
             <div class="text-center md:text-right">
-                <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">
+                <h2 class="text-xl md:text-2xl font-bold text-white leading-tight">
                     ألعاب أطفال حصرية <span class="text-brandOrange">بجودة فائقة</span> وتوصيل آمن لباب البيت.
                 </h2>
-                <p class="text-gray-400 text-sm mt-1">
+                <p class="text-gray-400 text-xs mt-1">
                     تواصل معنا واطلب الآن بأقوى سعر تنافسي جملة وقطاعي في محافظة الغربية.
                 </p>
             </div>
             <div class="flex gap-3 w-full md:w-auto justify-center">
-                <button class="px-8 py-3 bg-brandOrange text-white rounded-xl font-bold glow-orange hover:scale-105 transition-all duration-300 whitespace-nowrap" 
+                <button class="px-6 py-3 bg-brandOrange text-white text-sm rounded-xl font-bold glow-orange hover:scale-105 transition-all duration-300 whitespace-nowrap" 
                         onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">
                     تصفح كيتالوج الجملة
                 </button>
-                <a class="px-6 py-3 border border-brandMint text-brandMint rounded-xl font-bold flex items-center gap-2 hover:bg-brandMint/5 transition-all whitespace-nowrap" 
+                <a class="px-5 py-3 border border-brandMint text-brandMint text-sm rounded-xl font-bold flex items-center gap-2 hover:bg-brandMint/5 transition-all whitespace-nowrap" 
                    href="https://wa.me/201000000000" target="_blank">
                     اطلب واتساب فوراً
                 </a>
@@ -130,90 +137,89 @@
     </header>
 
     <!-- Catalog Section -->
-    <section class="py-12 max-w-7xl mx-auto px-6" id="catalog">
-        <div class="mb-10">
-            <h3 class="text-3xl font-bold text-white">منتجاتنا المخفضة</h3>
-            <p class="text-gray-400 mt-1">اضغط على أي صنف لإضافته مباشرة في سلة الطلب الفوري عبر الواتساب</p>
+    <section class="py-10 max-w-7xl mx-auto px-4" id="catalog">
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold text-white">منتجاتنا المخفضة</h3>
+            <p class="text-sm text-gray-400 mt-1">اضغط على أي صنف لإضافته مباشرة في سلة الطلب الفوري عبر الواتساب</p>
         </div>
 
-        <!-- Filter Categories Tabs -->
-        <div class="flex overflow-x-auto gap-3 mb-10 pb-2 hide-scrollbar">
-            <button class="px-6 py-2.5 bg-brandOrange text-white rounded-full font-bold whitespace-nowrap transition-all" onclick="filterCategory('all', this)" id="default-filter">الكل</button>
-            <button class="px-6 py-2.5 bg-brandSurface text-gray-300 border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint" onclick="filterCategory('remote', this)">🏎️ سيارات تحكم</button>
-            <button class="px-6 py-2.5 bg-brandSurface text-gray-300 border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint" onclick="filterCategory('girls', this)">🧸 عرايس ومطابخ</button>
-            <button class="px-6 py-2.5 bg-brandSurface text-gray-300 border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint" onclick="filterCategory('party', this)">🎈 بالونات واحتفالات</button>
+        <!-- Categories Filters -->
+        <div class="flex overflow-x-auto gap-2.5 mb-8 pb-2 hide-scrollbar">
+            <button class="px-5 py-2 bg-brandOrange text-white text-sm rounded-full font-bold whitespace-nowrap transition-all" onclick="filterCategory('all', this)" id="default-filter">الكل</button>
+            <button class="px-5 py-2 bg-brandSurface text-gray-300 text-sm border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint" onclick="filterCategory('remote', this)">🏎️ سيارات تحكم</button>
+            <button class="px-5 py-2 bg-brandSurface text-gray-300 text-sm border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint" onclick="filterCategory('girls', this)">🧸 عرايس ومطابخ</button>
+            <button class="px-5 py-2 bg-brandSurface text-gray-300 text-sm border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint" onclick="filterCategory('party', this)">🎈 بالونات واحتفالات</button>
         </div>
 
-        <!-- Dynamic Product Grid -->
+        <!-- Dynamic Store Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="product-grid">
-            <!-- Items injected by JavaScript from Google Sheet -->
+            <!-- Injected smoothly via Google Sheets Script -->
         </div>
     </section>
 
-    <!-- Slide-out Checkout Sidebar -->
-    <aside class="fixed right-0 top-0 h-full w-full md:w-[450px] z-[70] translate-x-full transition-transform duration-500 bg-brandSurface/95 backdrop-blur-xl border-l border-white/10 flex flex-col" id="cart-sidebar">
+    <!-- Slide-out Shopping Cart -->
+    <aside class="fixed right-0 top-0 h-full w-full md:w-[420px] z-[70] translate-x-full transition-transform duration-500 bg-brandSurface/95 backdrop-blur-xl border-l border-white/10 flex flex-col" id="cart-sidebar">
         <div class="p-4 flex justify-between items-center border-b border-white/10">
-            <h3 class="text-xl font-bold text-brandMint flex items-center gap-2">
+            <h3 class="text-lg font-bold text-brandMint flex items-center gap-2">
                 <span class="material-symbols-outlined">shopping_basket</span> طلبك الحالي
             </h3>
-            <button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10" onclick="toggleCart()">
-                <span class="material-symbols-outlined text-white">close</span>
+            <button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/10" onclick="toggleCart()">
+                <span class="material-symbols-outlined text-white text-lg">close</span>
             </button>
         </div>
 
-        <div class="flex-grow overflow-y-auto p-4 space-y-4" id="cart-items-container">
-            <!-- Dynamic Cart Items -->
+        <div class="flex-grow overflow-y-auto p-4 space-y-3" id="cart-items-container">
+            <!-- Realtime rows -->
         </div>
 
-        <div class="p-4 border-t border-white/10 bg-brandDark/50 space-y-4">
+        <div class="p-4 border-t border-white/10 bg-brandDark/50 space-y-3">
             <div class="flex justify-between items-center">
-                <span class="text-gray-400">إجمالي الطلب:</span>
-                <span class="text-2xl font-bold text-brandMint" id="cart-total">0 EGP</span>
+                <span class="text-sm text-gray-400">إجمالي الطلب:</span>
+                <span class="text-xl font-bold text-brandMint" id="cart-total">0 EGP</span>
             </div>
-            <button class="w-full py-4 bg-brandOrange text-white rounded-xl font-bold hover:bg-brandOrange/90 transition-all text-center block" onclick="sendOrderToWhatsApp()">
+            <button class="w-full py-3.5 bg-brandOrange text-white rounded-xl font-bold hover:bg-brandOrange/90 transition-all text-center block text-sm" onclick="sendOrderToWhatsApp()">
                 إرسال الطلب عبر الواتساب (تأكيد فوري)
             </button>
         </div>
     </aside>
     <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[65] hidden" id="cart-overlay" onclick="toggleCart()"></div>
 
-    <!-- Contact & Footer -->
-    <footer class="bg-brandDark border-t border-white/5 py-12 px-6 md:px-12 mt-20 text-center md:text-right">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            <div>
-                <h4 class="text-xl font-bold text-brandMint">شركة عمران التجارية</h4>
-                <p class="text-gray-400 text-sm mt-2">أكبر تشكيلة لعب أطفال وهدايا جملة وقطاعي في محافظة الغربية.</p>
+    <!-- Corporate Footer -->
+    <footer class="bg-brandDark border-t border-white/5 py-10 px-4 md:px-12 text-center md:text-right">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="flex items-center justify-center md:justify-start gap-3">
+                <img class="w-10 h-10 perfect-logo" src="1782082414760.png" alt="عمران" />
+                <div>
+                    <h4 class="text-lg font-bold text-brandMint">شركة عمران التجارية</h4>
+                    <p class="text-gray-400 text-xs mt-0.5">أكبر تشكيلة لعب أطفال وهدايا جملة وقطاعي في محافظة الغربية.</p>
+                </div>
             </div>
-            <div class="space-y-2 text-sm text-gray-400">
+            <div class="space-y-1 text-xs text-gray-400">
                 <p class="flex items-center justify-center md:justify-start gap-2">
-                    <span class="material-symbols-outlined text-brandOrange text-sm">location_on</span> طنطا، شارع سيتي كلوب ومطعم سي السيد
+                    <span class="material-symbols-outlined text-brandOrange text-base">location_on</span> طنطا، شارع سيتي كلوب ومطعم سي السيد
                 </p>
                 <p class="flex items-center justify-center md:justify-start gap-2">
-                    <span class="material-symbols-outlined text-brandOrange text-sm">call</span> فون وواتساب: 01000000000
+                    <span class="material-symbols-outlined text-brandOrange text-base">call</span> فون وواتساب: 01000000000
                 </p>
             </div>
-            <div class="text-center md:text-left text-sm text-gray-500">
+            <div class="text-center md:text-left text-xs text-gray-500">
                 © 2026 Omran Trading. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
 
-    <!-- Logic Controller Script -->
+    <!-- Logic Script Hooked to Google Sheets -->
     <script>
-        // 🔗 رابط الـ Web CSV الخاص بجدول منتجاتك في Google Sheets
-        // استبدل الرابط أدناه برابط الـ CSV الخاص بجدول بياناتك الفعلي بعد النشر الويب
+        // 🔗 ضع رابط الـ Publish Web CSV الخاص بجوجل شيت هنا لتعمل اللوحة الحية فوراً
         const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vXXXXXX/pub?output=csv";
 
         let products = [];
         let cart = [];
 
-        // دالة جلب البيانات الحية من جوجل شيت وتصفيتها
         async function fetchProductsFromSheet() {
             try {
                 const response = await fetch(GOOGLE_SHEET_CSV_URL);
                 const data = await response.text();
-                
-                // تحويل الـ CSV الناتجة يدوياً لمنع مشاكل المكتبات الخارجية
                 const rows = data.split('\n').slice(1); 
                 products = rows.map(row => {
                     const cols = row.split(',');
@@ -226,13 +232,11 @@
                         category: cols[4].trim().replace(/\r/g, '')
                     };
                 }).filter(p => p !== null);
-
                 renderProducts(products);
             } catch (error) {
-                console.error("خطأ في الاتصال بجوجل شيت، جاري التحميل الاحتياطي للمنتجات:", error);
-                // Fallback داتا افتراضية لحين ربط رابط الشيت الفعلي
+                console.error("التحميل الاحتياطي للمنتجات السريعة لوجود مشكلة برابط الجدول:", error);
                 products = [
-                    { id: 1, name: "سيارة دفع رباعي متطورة بريموت RC", price: 2450, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAglxpaG_i2UjGyE8AlI65uorWX3U-un8DFAvq1izmzSMgONu6oME0is3fhN-UZIGR_jCNUT_6RErVjkqgRivOpbDlZjQQ6izSS1j3eDdJGKjdI8P1cDbdoF2MGBMxCSLT4qAcSIc4-x_6YX6H-joRn3pIG6qP30XIozF1KTRbxgmOIKpku8fqLJeYzAcvQH8YYZlgs9WrEqqf1lTC7Weiv7fFiqhLt_idOIk3xQngHlJtICDhzHVGH", category: "remote" },
+                    { id: 1, name: "سيارة دفع رباعي متطورة بريموت RC", price: 2450, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcC7Py9KtOdG1OJsYgELRXtg9xqhfkyceNddaW9rqi2f61qZzJBbUJ8R2Po2O0I5Lh5hZ12KnUJt5cwP64xaQ3aaudpTGfye0Dg-Vu9aZN6r88ezkFSy1vXE1cIj9gWrCBhYeC4c-PfYoVEBZmcVQQJvoJ9k8BQGV0Q7C0XEpChdeU6fbsLgFHCbWgh-VrcSJyvHg7XQNmtE0ZCiY5GH4c7yruRyXBUTSss_Pp9rkHk8hvQCHHopV9", category: "remote" },
                     { id: 2, name: "مجموعة قاذف السهام الإسفنجية الآمنة", price: 850, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCIkUVUzpbFAVX5yfQvqHvSw4gm_ynSvMolgAS5BUm3zQ6Ozg4qVfHNvH3EzO749KFPCkl5kZZ2oxy-2Y4gYms8vDfr6rv4-HGWXuoETZuiluN23zgYGHqaGdOniW9IU478ej4bSmWOYVgVTEXsaiVXoFpr4ndx4KI4hFdO6wUnN9ozsgerAEsaIxRQP6Bncx5CIy5JuR5YWoVfHok0-_bG657cw-TKyllFPtCwAV8anS5Y0UuHjDpW", category: "remote" },
                     { id: 3, name: "مطبخ الأحلام الصغير المتكامل للبنات", price: 3100, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCSv-MO8YeCDEElYsY0_2bBMZ8uL-GBI-4GI8LYOyJKw4Rev9r7Kk1U0CrMe8tcR5AvMUbARseHaiOZ6dM3t5X4cRoVeZ7MjbKo-sMsXBbQUJVgeSUx-Sn3LJ-Lf6Ifiik44LGjICbTiVjWxkL__K76DjGcgkrBYnsZbcZJT8C9tXq2jIfJhchS9An4vPCWS72fxpsooM_DY_ed3F9DgZvAvbJmYsXspFpVgeo38zLzkNaROxIB4APK", category: "girls" },
                     { id: 4, name: "باقة بالونات هيليوم ملكية ملونة كروم", price: 420, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC5kcvVsqjNg5SkGJCVyDtmaIiE9TRX1lR2P8y7TOdXr_zJHs2q3v9WSc20uwBzrReUKQJOVenrEbXXx-5ukBxu158nxAiFGlwFj4HYSHXndwUOPqJcFcUfFrWXallwLYDU0Ed69DH0NBgr2B8Srb7cQr7lbTBdI50Gi-8olIrdLJh-v989SVcXVl9EulaNr9FI1GKnSWawtaa6odDoP7UGXTRDTuu4sJtCu54_PyuUs0LI_iSP9VYq", category: "party" }
@@ -241,7 +245,6 @@
             }
         }
 
-        // بناء وعرض كروت الألعاب في الـ UI
         function renderProducts(items) {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
@@ -267,7 +270,6 @@
             });
         }
 
-        // إظهار وإخفاء سلة الشراء الجانبية
         function toggleCart() {
             const sidebar = document.getElementById('cart-sidebar');
             const overlay = document.getElementById('cart-overlay');
@@ -275,7 +277,6 @@
             overlay.classList.toggle('hidden');
         }
 
-        // إضافة صنف للسلة
         function addToCart(id) {
             const item = products.find(p => p.id === id);
             const inCart = cart.find(c => c.id === id);
@@ -285,14 +286,12 @@
             document.getElementById('cart-overlay').classList.remove('hidden');
         }
 
-        // التحكم في كميات الأصناف بالسلة
         function changeQty(index, delta) {
             cart[index].qty += delta;
             if (cart[index].qty < 1) cart.splice(index, 1);
             updateCartUI();
         }
 
-        // تحديث المجموع الإجمالي والعدادات
         function updateCartUI() {
             const container = document.getElementById('cart-items-container');
             const counter = document.getElementById('cart-counter');
@@ -325,14 +324,12 @@
             totalDisplay.innerText = `${total.toLocaleString()} EGP`;
         }
 
-        // الفلترة والتبديل بين الأقسام
         function filterCategory(cat, btn) {
-            document.querySelectorAll('#catalog button').forEach(b => b.className = "px-6 py-2.5 bg-brandSurface text-gray-300 border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint");
-            btn.className = "px-6 py-2.5 bg-brandOrange text-white rounded-full font-bold whitespace-nowrap transition-all";
+            document.querySelectorAll('#catalog button').forEach(b => b.className = "px-5 py-2 bg-brandSurface text-gray-300 text-sm border border-white/5 rounded-full font-bold whitespace-nowrap transition-all hover:border-brandMint");
+            btn.className = "px-5 py-2 bg-brandOrange text-white text-sm rounded-full font-bold whitespace-nowrap transition-all";
             if (cat === 'all') { renderProducts(products); } else { renderProducts(products.filter(p => p.category === cat)); }
         }
 
-        // دالة توليد رسالة واتساب الاحترافية المنسقة تلقائياً للطلب المباشر
         function sendOrderToWhatsApp() {
             if(cart.length === 0) return alert('السلة فارغة حالياً!');
             let text = `مرحبا شركة عمران التجارية، أريد تأكيد طلب المنتجات التالية بسعر الجملة:\n\n`;
@@ -342,11 +339,10 @@
                 total += item.price * item.qty;
             });
             text += `\n*الإجمالي الصافي كاش:* ${total.toLocaleString()} EGP\n`;
-            text += `*العنوان:* شحن آمن لباب البيت\n`;
+            text += `*العنوان:* شحن آمن لباب البيت - طنطا\n`;
             window.open(`https://wa.me/201000000000?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        // بدء جلب السجلات لايف فور تشغيل الصفحة
         fetchProductsFromSheet();
     </script>
 </body>
