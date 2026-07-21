@@ -1,293 +1,173 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شركة عمران التجارية | متجر ألعاب الأطفال</title>
-  
-  <!-- Bootstrap 4 CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  
-  <!-- FontAwesome للإيقونات -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
-  <!-- ملف التنسيقات الخاص بنا -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شركة عمران التجارية - متخصصون في ألعاب الأطفال والألعاب التعليمية في طنطا.">
+    <title>عمران للألعاب | شركة عمران التجارية</title>
+    
+    <!-- خطوط جوجل (Cairo) لخط عربي عصري واحترافي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التنسيقات الخاص بك -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 1. شريط الإعلانات العلوي -->
-  <div class="top-navbar py-2">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div>
-        <i class="fas fa-truck ml-2"></i> شحن سريع لكافة المناطق | التوصيل مجاني للطلبات فوق 200 ج.م
-      </div>
-      <div>
-        <a href="#" class="text-white ml-3"><i class="fas fa-phone-alt ml-1"></i> خدمة العملاء</a>
-        <a href="#" class="text-white"><i class="fas fa-globe ml-1"></i> العربية</a>
-      </div>
-    </div>
-  </div>
+    <!-- ================= HEADER SECTION (الرأس) ================= -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- الشعار -->
+            <a href="index.html" class="logo">
+                <h1>عمران <span>للألعاب</span></h1>
+            </a>
 
-  <!-- 2. الهيدر الرئيسي (اللوجو والبحث والسلة) -->
-  <header class="main-header sticky-top">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- الشعار -->
-        <div class="col-6 col-md-3">
-          <a href="#" class="brand-logo">
-            عمران <span>للالعاب</span>
-          </a>
+            <!-- شريط البحث -->
+            <div class="search-bar">
+                <input type="text" placeholder="ابحث عن لعبة، عمر الطفل، أو الماركة..." aria-label="بحث">
+                <button type="button"><i class="fas fa-search"></i> بحث</button>
+            </div>
+
+            <!-- أزرار المستخدم والسلة -->
+            <div class="user-actions">
+                <a href="#" class="btn-login"><i class="far fa-user"></i> دخول</a>
+                <a href="cart.html" class="btn-cart">
+                    <i class="fas fa-shopping-cart"></i> السلة
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
         </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT (المحتوى الرئيسي) ================= -->
+    <main class="products-container" id="products">
         
-        <!-- شريط البحث -->
-        <div class="col-12 col-md-6 my-2 my-md-0 order-3 order-md-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="ابحث عن لعبة، عمر الطفل، أو الماركة...">
-            <div class="input-group-append">
-              <button class="btn btn-primary-custom" type="button">
-                <i class="fas fa-search"></i> بحث
-              </button>
+        <!-- عنوان القسم -->
+        <div class="section-header">
+            <h2><i class="fas fa-star" style="color: #fbbf24;"></i> الأكثر مبيعاً</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <!-- شبكة المنتجات -->
+        <div class="products-grid">
+            
+            <!-- المنتج 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-palette fa-4x" style="color: #ef4444;"></i>
+                </div>
+                <div class="product-info">
+                    <span class="age-tag">عمر 2+ سنوات</span>
+                    <h3>حقيبة التلوين والرسم الآمنة</h3>
+                    <p class="desc">ألوان غير سامة وقابلة للغسل بسهولة</p>
+                    <div class="price-row">
+                        <span class="price">55 ج.م</span>
+                        <button class="add-cart-btn"><i class="fas fa-plus"></i> إضافة</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- أزرار الدخول والسلة -->
-        <div class="col-6 col-md-3 text-left order-2 order-md-3">
-          <a href="#" class="btn btn-outline-secondary btn-sm ml-2">
-            <i class="far fa-user"></i> دخول
-          </a>
-          <a href="#" class="btn btn-primary-custom btn-sm">
-            <i class="fas fa-shopping-cart"></i> السلة <span class="badge badge-light">3</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- 3. قائمة التصفح -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav right-auto">
-          <li class="nav-item active"><a class="nav-link font-weight-bold" href="#">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">ألعاب تعليمية وذكاء</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">سيارات ومجسمات</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">دمى وعرائس</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">ألعاب خارجية وتركيبات</a></li>
-          <li class="nav-item"><a class="nav-link text-danger font-weight-bold" href="#">العروض والتخفيضات %</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 4. البانر الرئيسي (Hero Banner) -->
-  <section class="py-4">
-    <div class="container">
-      <div class="jumbotron bg-white border rounded p-4 p-md-5 d-flex align-items-center justify-content-between">
-        <div>
-          <span class="badge-tag mb-2 d-inline-block">تشكيلة الموسم الجديد</span>
-          <h1 class="display-4 font-weight-bold text-dark">عالم من المرح والتعلم لطفلك!</h1>
-          <p class="lead text-muted">اكتشف أفضل ألعاب الأطفال الآمنة والتعليمية المقترحة من خبراء التربية بأسعار تجارية منافسة.</p>
-          <a class="btn btn-primary-custom btn-lg mt-3" href="#" role="button">تسوق العروض الآن</a>
-        </div>
-        <div class="d-none d-md-block text-center">
-          <i class="fas fa-cubes fa-10x" style="color: var(--primary-color); opacity: 0.8;"></i>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. أقسام التصنيفات -->
-  <section class="py-3">
-    <div class="container">
-      <h4 class="font-weight-bold mb-4"><i class="fas fa-th-large text-warning ml-2"></i>تسوق حسب التصنيف</h4>
-      <div class="row">
-        <div class="col-6 col-md-3 mb-3">
-          <div class="category-card">
-            <i class="fas fa-brain fa-3x text-primary mb-3"></i>
-            <h6>ألعاب الذكاء والمنتسوري</h6>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <div class="category-card">
-            <i class="fas fa-car fa-3x text-success mb-3"></i>
-            <h6>السيارات والريموت</h6>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <div class="category-card">
-            <i class="fas fa-shapes fa-3x text-danger mb-3"></i>
-            <h6>المكعبات والتركيبات</h6>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <div class="category-card">
-            <i class="fas fa-child fa-3x text-warning mb-3"></i>
-            <h6>ألعاب الحركة والحدائق</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. المنتجات الأكثر مبيعاً -->
-  <section class="py-4">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="font-weight-bold mb-0"><i class="fas fa-star text-warning ml-2"></i>الأكثر مبيعاً</h4>
-        <a href="#" class="text-primary font-weight-bold">عرض الكل <i class="fas fa-arrow-left mr-1"></i></a>
-      </div>
-
-      <div class="row">
-        <!-- منتج 1 -->
-        <div class="col-6 col-md-3 mb-4">
-          <div class="card-product p-3 d-flex flex-column justify-content-between">
-            <div>
-              <div class="text-center py-4 bg-light rounded mb-3">
-                <i class="fas fa-puzzle-piece fa-4x text-secondary"></i>
-              </div>
-              <span class="badge-tag">عمر +3 سنوات</span>
-              <h6 class="mt-2 font-weight-bold text-dark">مجموعة المكعبات الخشبية التعليمية</h6>
-              <p class="small text-muted mb-2">تساعد على تنمية المهارات الحركية والتركيز</p>
+            <!-- المنتج 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-gamepad fa-4x" style="color: #f59e0b;"></i>
+                </div>
+                <div class="product-info">
+                    <span class="age-tag">عمر 5+ سنوات</span>
+                    <h3>سيارة سباق الطرق الوعرة</h3>
+                    <p class="desc">بطارية قابلة للشحن ومقاومة للصدمات</p>
+                    <div class="price-row">
+                        <span class="price">110 ج.م</span>
+                        <button class="add-cart-btn"><i class="fas fa-plus"></i> إضافة</button>
+                    </div>
+                </div>
             </div>
-            <div>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <span class="product-price">85 ج.م</span>
-                <button class="btn btn-primary-custom btn-sm"><i class="fas fa-plus"></i> إضافة</button>
-              </div>
+
+            <!-- المنتج 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-robot fa-4x" style="color: #06b6d4;"></i>
+                </div>
+                <div class="product-info">
+                    <span class="age-tag">عمر 6+ سنوات</span>
+                    <h3>روبوت تفاعلي ذكي بالريموت</h3>
+                    <p class="desc">أصوات وإضاءات متعددة مع وضع الاستكشاف</p>
+                    <div class="price-row">
+                        <span class="price">140 ج.م</span>
+                        <button class="add-cart-btn"><i class="fas fa-plus"></i> إضافة</button>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- المنتج 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-puzzle-piece fa-4x" style="color: #64748b;"></i>
+                </div>
+                <div class="product-info">
+                    <span class="age-tag">عمر 3+ سنوات</span>
+                    <h3>مجموعة المكعبات الخشبية التعليمية</h3>
+                    <p class="desc">تساعد على تنمية المهارات الحركية والتركيز</p>
+                    <div class="price-row">
+                        <span class="price">85 ج.م</span>
+                        <button class="add-cart-btn"><i class="fas fa-plus"></i> إضافة</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-        <!-- منتج 2 -->
-        <div class="col-6 col-md-3 mb-4">
-          <div class="card-product p-3 d-flex flex-column justify-content-between">
-            <div>
-              <div class="text-center py-4 bg-light rounded mb-3">
-                <i class="fas fa-robot fa-4x text-info"></i>
-              </div>
-              <span class="badge-tag">عمر +6 سنوات</span>
-              <h6 class="mt-2 font-weight-bold text-dark">روبوت تفاعلي ذكي بالريموت</h6>
-              <p class="small text-muted mb-2">أصوات وإضاءات متعددة مع وضع الاستكشاف</p>
+    <!-- ================= FOOTER SECTION (التذييل) ================= -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                
+                <!-- العمود الأول: هُوية الشركة والعنوان -->
+                <div class="footer-col brand-col">
+                    <h3 class="footer-logo">عمران <span>للألعاب</span></h3>
+                    <p class="brand-desc">
+                        شركة عمران التجارية — متخصصون في استيراد وتوزيع أجود أنواع ألعاب الأطفال والألعاب التعليمية بأعلى معايير الجودة والأمان.
+                    </p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> طنطا - أمام بوابة نادي سيتي كلوب ومطعم سي السيد</p>
+                    </div>
+                </div>
+
+                <!-- العمود الثاني: طرق الدفع المتاحة -->
+                <div class="footer-col payment-col">
+                    <h4 class="col-title">طرق الدفع المتاحة</h4>
+                    <p class="payment-note">نوفر طرق دفع إلكترونية سهلة وآمنة عبر:</p>
+                    <div class="payment-badges">
+                        <div class="badge vodafone-badge">
+                            <i class="fas fa-mobile-alt"></i> فودافون كاش
+                        </div>
+                        <div class="badge instapay-badge">
+                            <i class="fas fa-university"></i> إنستا باي (InstaPay)
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <span class="product-price">140 ج.م</span>
-                <button class="btn btn-primary-custom btn-sm"><i class="fas fa-plus"></i> إضافة</button>
-              </div>
+
+            <!-- الشريط السفلي: الحقوق وحقوق التصميم -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    جميع الحقوق محفوظة © 2026 لـ <strong>شركة عمران التجارية لتجارة لعب الأطفال</strong>.
+                </div>
+                <div class="designer-credit">
+                    تصميم وتطوير: <span>Alaa Omran</span>
+                </div>
             </div>
-          </div>
         </div>
+    </footer>
 
-        <!-- منتج 3 -->
-        <div class="col-6 col-md-3 mb-4">
-          <div class="card-product p-3 d-flex flex-column justify-content-between">
-            <div>
-              <div class="text-center py-4 bg-light rounded mb-3">
-                <i class="fas fa-gamepad fa-4x text-warning"></i>
-              </div>
-              <span class="badge-tag">عمر +5 سنوات</span>
-              <h6 class="mt-2 font-weight-bold text-dark">سيارة سباق الطرق الوعرة</h6>
-              <p class="small text-muted mb-2">بطارية قابلة للشحن ومقاومة للصدمات</p>
-            </div>
-            <div>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <span class="product-price">110 ج.م</span>
-                <button class="btn btn-primary-custom btn-sm"><i class="fas fa-plus"></i> إضافة</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- منتج 4 -->
-        <div class="col-6 col-md-3 mb-4">
-          <div class="card-product p-3 d-flex flex-column justify-content-between">
-            <div>
-              <div class="text-center py-4 bg-light rounded mb-3">
-                <i class="fas fa-palette fa-4x text-danger"></i>
-              </div>
-              <span class="badge-tag">عمر +2 سنوات</span>
-              <h6 class="mt-2 font-weight-bold text-dark">حقيبة التلوين والرسم الآمنة</h6>
-              <p class="small text-muted mb-2">ألوان غير سامة وقابلة للغسل بسهولة</p>
-            </div>
-            <div>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <span class="product-price">55 ج.م</span>
-                <button class="btn btn-primary-custom btn-sm"><i class="fas fa-plus"></i> إضافة</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-<!-- ================= FOOTER SECTION ================= -->
-<footer class="main-footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      
-      <!-- العمود الأول: عن الشركة -->
-      <div class="footer-col brand-col">
-        <h3 class="footer-logo">عمران <span>للألعاب</span></h3>
-        <p class="brand-desc">
-          شركة عمران التجارية - متخصصون في استيراد وتوزيع أجود أنواع ألعاب الأطفال والألعاب التعليمية بأعلى معايير الجودة والأمان.
-        </p>
-        <div class="contact-info">
-          <p><i class="fas fa-map-marker-alt"></i> طنطا - أمام بوابة نادي سيتي كلوب</p>
-          <p><i class="fas fa-envelope"></i> info@omran-toys.com</p>
-        </div>
-      </div>
-
-      <!-- العمود الثاني: روابط سريعة -->
-      <div class="footer-col">
-        <h4 class="col-title">روابط سريعة</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">الرئيسية</a></li>
-          <li><a href="#products">أحدث الألعاب</a></li>
-          <li><a href="#offers">العروض الخاصة</a></li>
-          <li><a href="#about">عن الشركة</a></li>
-        </ul>
-      </div>
-
-      <!-- العمود الثالث: خدمة العملاء -->
-      <div class="footer-col">
-        <h4 class="col-title">خدمة العملاء</h4>
-        <ul class="footer-links">
-          <li><a href="#">سياسة الشحن والتوصيل</a></li>
-          <li><a href="#">الاسترجاع والاستبدال</a></li>
-          <li><a href="#">الشروط والأحكام</a></li>
-          <li><a href="#">تواصل معنا</a></li>
-        </ul>
-      </div>
-
-      <!-- العمود الرابع: وسائل الدفع والثقة -->
-      <div class="footer-col">
-        <h4 class="col-title">وسائل الدفع المتاحة</h4>
-        <p class="payment-note">نوفر طرق دفع آمنة ومتعددة لراحتكم</p>
-        <div class="payment-badges">
-          <span class="badge"><i class="fab fa-cc-visa"></i> Visa</span>
-          <span class="badge"><i class="fab fa-cc-mastercard"></i> Mastercard</span>
-          <span class="badge"><i class="fab fa-apple-pay"></i> Apple Pay</span>
-          <span class="badge"><i class="fas fa-money-bill-wave"></i> الدفع عند الاستلام</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- الشريط السفلي: الحقوق وحقوق التصميم -->
-    <div class="footer-bottom">
-      <div class="copyright">
-        جميع الحقوق محفوظة © 2026 لـ <strong>شركة عمران التجارية لتجارة لعب الأطفال</strong>.
-      </div>
-      <div class="designer-credit">
-        تصميم وتطوير: <a href="https://github.com/alaaomran2020" target="_blank" rel="noopener">علاء عمران | Alaa Omran</a>
-      </div>
-    </div>
-  </div>
-</footer>
+    <!-- ملف الجافاسكريبت الخاص بك -->
+    <script src="script.js"></script>
+</body>
+</html>
